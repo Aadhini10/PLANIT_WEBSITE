@@ -1,0 +1,375 @@
+<style>
+    .gallery {
+    --s: 150px; /* control the size */
+    --g: 10px;  /* control the gap */
+    --f: 1.5;   /* control the scale factor */
+    
+    display: grid;
+    gap: var(--g);
+    width: calc(3*var(--s) + 2*var(--g));
+    aspect-ratio: 1;
+    grid-template-columns: repeat(3,auto);
+  }
+  .header {
+      background-color:black;
+      color:white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      font-size: 25px;
+    }
+    .navbar li {
+      margin-right: 20px;
+    }
+    .navbar a {
+      color:white;
+      text-decoration: none;
+    }
+    .navbar a:hover {
+      text-decoration: underline;
+      color:blue;
+    }
+  
+    .footer-distributed{
+    background:black;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+  }
+  
+  .footer-distributed .footer-left,
+  .footer-distributed .footer-center,
+  .footer-distributed .footer-right{
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  /* Footer left */
+  
+  .footer-distributed .footer-left{
+    width: 40%;
+  }
+  
+  /* The company logo */
+  
+  .footer-distributed h3{
+    color:  #ffffff;
+    font: normal 36px 'Open Sans', cursive;
+    margin: 0;
+  }
+  
+  .footer-distributed h3 span{
+    color:  lightseagreen;
+  }
+  
+  /* Footer links */
+  
+  .footer-distributed .footer-links{
+    color:  #ffffff;
+    margin: 20px 0 12px;
+    padding: 0;
+  }
+  
+  .footer-distributed .footer-links a{
+    display:inline-block;
+    line-height: 1.8;
+    font-weight:400;
+    text-decoration: none;
+    color:  inherit;
+  }
+  
+  .footer-distributed .footer-company-name{
+    color:  #222;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+  }
+  
+  /* Footer Center */
+  
+  .footer-distributed .footer-center{
+    width: 35%;
+  }
+  
+  .footer-distributed .footer-center i{
+    background-color: black;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+  }
+  
+  .footer-distributed .footer-center i.fa-envelope{
+    font-size: 17px;
+    line-height: 38px;
+  }
+  
+  .footer-distributed .footer-center p{
+    display: inline-block;
+    color: #ffffff;
+    font-weight:400;
+    vertical-align: middle;
+    margin:0;
+  }
+  
+  .footer-distributed .footer-center p span{
+    display:block;
+    font-weight: normal;
+    font-size:14px;
+    line-height:2;
+  }
+  
+  .footer-distributed .footer-center p a{
+    color:  lightseagreen;
+    text-decoration: none;;
+  }
+  
+  .footer-distributed .footer-links a:before {
+    content: "|";
+    font-weight:300;
+    font-size: 20px;
+    left: 0;
+    color: #fff;
+    display: inline-block;
+    padding-right: 5px;
+  }
+  
+  .footer-distributed .footer-links .link-1:before {
+    content: none;
+  }
+  
+  /* Footer Right */
+  
+  .footer-distributed .footer-right{
+    width: 20%;
+  }
+  
+  .footer-distributed .footer-company-about{
+    line-height: 20px;
+    color:  #92999f;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+  }
+  
+  .footer-distributed .footer-company-about span{
+    display: block;
+    color:  #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .footer-distributed .footer-icons{
+    margin-top: 25px;
+  }
+  
+  .footer-distributed .footer-icons a{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color:white;
+    border-radius: 2px;
+  
+    font-size: 20px;
+    color:black;
+    text-align: center;
+    line-height: 35px;
+  
+    margin-right: 3px;
+    margin-bottom: 5px;
+  }
+  .footer-icons img{
+    width:30px;
+    height: 30px;
+  }
+  
+  /* If you don't want the footer to be responsive, remove these media queries */
+  
+  @media (max-width: 880px) {
+  
+    .footer-distributed{
+      font: bold 14px sans-serif;
+    }
+  
+    .footer-distributed .footer-left,
+    .footer-distributed .footer-center,
+    .footer-distributed .footer-right{
+      display: block;
+      width: 100%;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  
+    .footer-distributed .footer-center i{
+      margin-left: 0;
+    }
+  
+  }
+  
+  
+  .gallery > img {
+    width: 0;
+    height: 0;
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    filter: grayscale(80%);
+    transition: .35s linear;
+  }
+  
+  .gallery img:hover{
+    filter: grayscale(0);
+    width:  calc(var(--s)*var(--f));
+    height: calc(var(--s)*var(--f));
+  }
+  .para{
+  font-size: 25px;
+  font-family: 'Brush Script MT', cursive;
+  font-weight: 300;
+}
+  
+  
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    background: white;
+  }
+  .heading{
+    text-align: left;
+  }
+  </style>
+  <header class="header">
+    <h2>PLANIT</h2>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="E1.P1.html">About</a></li>
+        <li><a href="E1.P1.html">Portfolio</a></li>
+        <li><a href="index.html">Engineers</a></li>
+        <li><a href="E1.P1.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <center>
+  <div>
+    <h1 class="heading">THE COZY NOOK</h1>
+  </div>
+  <div class="gallery">
+    <img src="E1.P3.R1.jpeg" alt="a forest after an apocalypse">
+    <img src="E1.P3.R2.jpeg" alt="a waterfall and many rocks">
+    <img src="E1.P3.R3.jpeg" alt="a house on a mountain">
+    <img src="E1.P3.R4.jpeg" alt="sime pink flowers">
+    <img src="E1.P3.R5.jpeg" alt="big rocks with some trees">
+    <img src="E1.P3.R6.jpeg" alt="a waterfall, a lot of tree and a great view from the sky">
+    <img src="E1.P3.R7.jpeg" alt="a cool landscape">
+    <img src="E1.P3.R8.jpeg" alt="inside a town between two big buildings">
+    <img src="E1.P3.R9.jpeg" alt="a great view of the sea above the mountain">
+  </div>
+  </center>
+  <center>
+  <div>
+    <h2>LIVING ROOM</h2>
+  </div>
+  <p class="para">The expansive living room boasts floor-to-ceiling windows, allowing for an abundance of natural light and breathtaking views. Open-concept design fosters a sense of spaciousness and encourages easy flow between living and dining areas.</p>
+  <div>
+    <h2>DINING ROOM</h2>
+  </div>
+  <p class="para"> The master bedroom features a walk-in closet with custom shelving and organizers, maximizing storage space and promoting a clutter-free environment. Engineered hardwood flooring throughout the home provides both style and durability.</p>
+  <div>
+    <h2>KITCHEN</h2>
+  </div>
+  <p class="para">A Chef's Dream: Unveil the meticulously designed kitchen, a culinary haven for both experienced chefs and home cooks alike. Our engineers have crafted a space that is both functional and stylish, featuring top-of-the-line appliances and ample storage to inspire your culinary creations.</p>
+  <div>
+    <h2>BEDROOM</h2>
+  </div>
+  <p class="para">The master bedroom features a walk-in closet with custom shelving and organizers, maximizing storage space and promoting a clutter-free environment. Engineered hardwood flooring throughout the home provides both style and durability.</p>
+    <h2>BATHROOM</h2>
+  </div>
+  <p class="para">A Spa-Like Retreat: Unwind and rejuvenate in the luxurious bathroom, designed to be a tranquil oasis within your home. Our engineers have meticulously crafted a space that prioritizes both comfort and functionality, featuring modern fixtures and high-quality finishes.</p>
+  <div>
+    <h2>BALCONY</h2>
+  </div>
+  <p class="para">The expansive living room boasts floor-to-ceiling windows, allowing for an abundance of natural light and breathtaking views. Open-concept design fosters a sense of spaciousness and encourages easy flow between living and dining areas.</p>
+</center>
+  <footer class="footer-distributed">
+  
+    <div class="footer-left">
+  
+      <h3><span>PLANIT</span></h3>
+  
+      <p class="footer-links">
+        <a href="#" class="link-1">Home</a>
+        
+        <a href="#">Blog</a>
+      
+        <a href="#">Pricing</a>
+      
+        <a href="#">About</a>
+        
+        <a href="#">Faq</a>
+        
+        <a href="#">Contact</a>
+      </p>
+  
+      <p class="footer-company-name">Planit © 2024</p>
+    </div>
+  
+    <div class="footer-center">
+  
+      <div>
+        <i class="fa fa-map-marker"></i>
+        <p><span>No 10 , Race Course</span>Coimbatore</p>
+      </div>
+  
+      <div>
+        <i class="fa fa-phone"></i>
+        <p>+1.555.555.5555</p>
+      </div>
+  
+      <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:support@company.com">support@planit.com</a></p>
+      </div>
+  
+    </div>
+  
+    <div class="footer-right">
+  
+      <p class="footer-company-about">
+        <span>About planit</span>
+        Planit is your gateway to a world of opportunity in civil engineering. We connect talented engineers with clients seeking their expertise, fostering collaboration and building the future of our infrastructure.
+      </p>
+  
+      <div class="footer-icons">
+  
+        
+          <a href="#"><img src="facebook icon.png" alt="Icon 1"></a>
+          <a href="#"><img src="linkedin icon 1.jpg" alt="Icon 2"></a>
+          <a href="#"><img src="twitter icon.png" alt="Icon 3"></a>
+          
+      
+  
+      </div>
+  
+    </div>
+  
+  </footer>
